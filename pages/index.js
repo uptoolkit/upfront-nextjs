@@ -1,15 +1,21 @@
+import {useUp} from "use-up"
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import {useUp} from "use-up";
 
-export default function Home() {
+function Home(props) {
 
-  if(!useUp){
-    return <div>...</div>;
+  if (!useUp) {
+    return <div>
+      <main>
+        <h1 className={styles.title}>
+          Up Toolkit Demo
+        </h1>
+      </main>
+    </div>
   }
 
-  let {__, config} = useUp();
+  const {config, __} = useUp();
 
   return (
     <div className={styles.container}>
@@ -21,7 +27,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          { config.get("project.name") }
+          {config.get("project.name")}
         </h1>
 
         <p className={styles.description}>
@@ -67,10 +73,12 @@ export default function Home() {
         >
           Powered by{' '}
           <span className={styles.logo}>
-            <Image src="/logo.svg" alt="Uptoolkit Logo" width={18} height={18} />
+            <Image src="/logo.svg" alt="Uptoolkit Logo" width={18} height={18}/>
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }
+
+export default Home;

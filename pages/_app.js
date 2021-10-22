@@ -1,10 +1,10 @@
-import '../styles/globals.css'
 import {useUp} from "use-up";
+import '../styles/globals.css';
 
 if (useUp) {
   useUp({
     debug: true,
-    project : {
+    project: {
       name: 'Up Toolkit Demo',
       logo: {
         src: '/img/logo.svg',
